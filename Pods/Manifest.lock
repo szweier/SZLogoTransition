@@ -1,0 +1,14 @@
+PODS:
+  - SZLogoTransition (0.0.1)
+
+DEPENDENCIES:
+  - SZLogoTransition (from `../SZLogoTransition`)
+
+EXTERNAL SOURCES:
+  SZLogoTransition:
+    :path: ../SZLogoTransition
+
+SPEC CHECKSUMS:
+  SZLogoTransition: 1b3783c9f40fd75891298d5730e36f0526bb0866
+
+COCOAPODS: 0.39.0
