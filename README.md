@@ -46,22 +46,25 @@ $ pod install
 Create the transition animator
 
 
-```let transition = SZLogoTransitionAnimator.init(
+```objc
+let transition = SZLogoTransitionAnimator.init(
         logo: UIImage.init(named: "signal")!,
         duration: 1.0,
         rotations: 5,
         yMaxScale: 200.0,
         xMaxScale: 200.0,
         yMinScale: 0.5,
-        xMinScale: 0.5)```
+        xMinScale: 0.5)
+```
         
 Set whether or not the transition is modal
 
-```transition.isModal = true```
+`transition.isModal = true`
 
 For modal presentation extend view controller as follows
 
-```extension ViewController: UIViewControllerTransitioningDelegate
+```objc
+extension ViewController: UIViewControllerTransitioningDelegate
 {
     func animationControllerForPresentedController(
         presented: UIViewController,
@@ -79,16 +82,18 @@ For modal presentation extend view controller as follows
         
         return transition
     }
-}```
+}
+```
 
 For navigation transitions set the view controller to conform to the navigation controller delegate
 
 
-```UINavigationControllerDelegate```
+`UINavigationControllerDelegate`
 
 And implement the delegate method like so:
 
-```func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+```objc
+func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
         if (operation == UINavigationControllerOperation.Push) {
             transition.presenting = true
             transition.initialView = fromVC.view
@@ -98,7 +103,8 @@ And implement the delegate method like so:
         }
 
         return transition
-    }```
+    }
+```
     
 
 ## Credits
